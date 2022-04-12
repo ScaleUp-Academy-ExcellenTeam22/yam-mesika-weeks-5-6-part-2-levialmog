@@ -7,18 +7,15 @@ def average_runtime(date_structure):
     :param date_structure: List or set of words.
     :return: Run time of the function.
     """
-    start = time.time()
     counter_word = 0
-    loop_number = 0
+    start_time = time.time()
 
-    for word in date_structure:
+    for iteration, word in enumerate(date_structure):
+        if iteration > 1000:
+            return time.time() - start_time
+        
         if word == "zwitterion":
             counter_word += 1
-            loop_number += 1
-            if loop_number == 1000:
-                break
-
-    return time.time() - start
 
 
 if __name__ == "__main__":
